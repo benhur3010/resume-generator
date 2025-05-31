@@ -1,0 +1,579 @@
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --text-color: #1f2937;
+  --light-text: #6b7280;
+  --border-color: #e5e7eb;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --technical-color: #3b82f6;
+  --soft-color: #8b5cf6;
+  --language-color: #ec4899;
+  --certification-color: #f59e0b;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.form-section {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-input.border-red-500 {
+  border-color: var(--error-color);
+}
+
+.form-input.border-green-500 {
+  border-color: var(--success-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-danger {
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.preview-container {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  position: sticky;
+  top: 2rem;
+  will-change: transform;
+  overscroll-behavior: contain;
+}
+
+.resume {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+}
+
+.resume-header {
+  text-align: left;
+  margin-bottom: 4rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.resume-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.resume-header h2 {
+  font-size: 1.25rem;
+  color: var(--light-text);
+  margin-bottom: 2rem;
+  word-break: break-word;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--light-text);
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 2rem;
+}
+
+.resume-section h3 {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.resume-entry {
+  margin-bottom: 1.5rem;
+}
+
+.resume-entry h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.resume-entry h5 {
+  font-size: 1rem;
+  color: var(--light-text);
+  margin-bottom: 0.25rem;
+}
+
+.resume-entry .date {
+  color: var(--light-text);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-group {
+  margin-bottom: 1.5rem;
+}
+
+.skills-group h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-group h4::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1rem;
+  border-radius: 2px;
+}
+
+.skills-group.technical h4::before {
+  background-color: var(--technical-color);
+}
+
+.skills-group.soft h4::before {
+  background-color: var(--soft-color);
+}
+
+.skills-group.language h4::before {
+  background-color: var(--language-color);
+}
+
+.skills-group.certification h4::before {
+  background-color: var(--certification-color);
+}
+
+.skills-group p {
+  color: var(--light-text);
+}
+
+.entry-container {
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.entry-container:hover {
+  border-color: var(--primary-color);
+}
+
+.remove-entry {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0.25rem;
+  transition: all 0.2s;
+}
+
+.skill-chip.technical {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--technical-color);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.skill-chip.soft {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: var(--soft-color);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.skill-chip.language {
+  background-color: rgba(236, 72, 153, 0.1);
+  color: var(--language-color);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+.skill-chip.certification {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--certification-color);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.skill-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.project-entry {
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.project-entry:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-entry h4 {
+  color: var(--primary-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-entry h4::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.project-entry p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.project-entry a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.project-entry a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.project-entry a::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232563eb'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.resume-section p {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .preview-container {
+    height: auto;
+    margin-top: 2rem;
+  }
+
+  .resume {
+    padding: 1rem;
+  }
+
+  .resume-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .resume-header h2 {
+    font-size: 1.125rem;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.preview-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.preview-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+.preview-container::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+.pdf-export {
+  width: 794px !important; /* Largura A4 em pixels */
+  min-height: 1123px !important; /* Altura A4 em pixels */
+  padding: 40px !important;
+  margin: 0 auto !important;
+  background: white !important;
+  box-shadow: none !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.pdf-export .resume {
+  width: 100% !important;
+  max-width: 700px !important; /* Largura máxima do conteúdo */
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.pdf-export .resume-header {
+  margin-bottom: 30px !important;
+  text-align: center !important;
+  page-break-after: avoid !important;
+}
+
+.pdf-export .resume-section {
+  margin-bottom: 20px !important;
+  page-break-inside: avoid !important;
+  width: 100% !important;
+}
+
+.pdf-export .resume-section:first-of-type {
+  page-break-before: avoid !important;
+}
+
+.pdf-export .resume-entry {
+  margin-bottom: 15px !important;
+  page-break-inside: avoid !important;
+  width: 100% !important;
+}
+
+.pdf-export .contact-info {
+  justify-content: center !important;
+  gap: 15px !important;
+  page-break-inside: avoid !important;
+}
+
+.pdf-export .skills-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  justify-content: center !important;
+  page-break-inside: avoid !important;
+}
+
+.pdf-export .skill-chip {
+  margin: 2px !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+}
+
+.pdf-export .project-entry {
+  page-break-inside: avoid !important;
+  margin-bottom: 20px !important;
+}
+
+@media print {
+  .pdf-export {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .pdf-export .resume-section {
+    break-inside: avoid !important;
+  }
+
+  .pdf-export .resume-entry {
+    break-inside: avoid !important;
+  }
+
+  .pdf-export .skills-group {
+    break-inside: avoid !important;
+  }
+
+  .pdf-export .project-entry {
+    break-inside: avoid !important;
+  }
+}
+
+.loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loading::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  color: var(--text-color);
+}
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: -0.5rem;
+}
+
+.form-input[readonly] {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+.form-input[readonly]:focus {
+  outline: none;
+  border-color: var(--border-color);
+  box-shadow: none;
+}
