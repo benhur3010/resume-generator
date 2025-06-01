@@ -736,35 +736,10 @@ function addEntry(type) {
     });
   });
 
-  if (type === "experience") {
-    const checkbox = newEntry.querySelector(".current-job-checkbox");
-    const endDateInput = newEntry.querySelector("input[name='workEndDate[]']");
-
-    checkbox.addEventListener("change", () => {
-      if (checkbox.checked) {
-        endDateInput.value = "";
-        endDateInput.disabled = true;
-      } else {
-        endDateInput.disabled = false;
-      }
-      generatePreview();
-    });
-  }
-
-  if (type === "experience") {
-    const checkbox = newEntry.querySelector(".current-job-checkbox");
-    const endDateGroup = newEntry.querySelector(".end-date-group");
-    checkbox.addEventListener("change", () => {
-      if (checkbox.checked) {
-        endDateGroup.style.display = "none";
-      } else {
-        endDateGroup.style.display = "block";
-      }
-      generatePreview();
-    });
-
-    newEntry.querySelector(".remove-entry").addEventListener("click", () => {
-      const allEntries = container.querySelectorAll(".experience-entry");
+  const removeBtn = newEntry.querySelector(".remove-entry");
+  if (removeBtn) {
+    removeBtn.addEventListener("click", () => {
+      const allEntries = container.querySelectorAll(`.${type}-entry`);
       if (allEntries.length > 1) {
         newEntry.style.opacity = "0";
         setTimeout(() => {
@@ -772,11 +747,25 @@ function addEntry(type) {
           generatePreview();
         }, 300);
       } else {
-        newEntry.querySelectorAll("input, textarea").forEach((field) => {
-          field.value = "";
-        });
+        newEntry
+          .querySelectorAll("input, textarea")
+          .forEach((fld) => (fld.value = ""));
         generatePreview();
       }
+    });
+  }
+
+  if (type === "experience") {
+    const checkbox = newEntry.querySelector(".current-job-checkbox");
+    const endDateGroup = newEntry.querySelector(".end-date-group");
+
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        endDateGroup.style.display = "none";
+      } else {
+        endDateGroup.style.display = "block";
+      }
+      generatePreview();
     });
   }
 }
