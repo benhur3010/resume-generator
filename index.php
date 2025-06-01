@@ -155,7 +155,7 @@
 
                         <div class="form-section">
                             <h3 class="section-title">Projetos Relevantes</h3>
-                            <div id="projectsContainer" class="scrollable-section">
+                            <div id="projectContainer" class="scrollable-section">
                                 <div class="project-entry entry-container">
                                     <div class="form-group">
                                         <label for="projectName" class="block text-sm font-medium text-gray-700 mb-1">Nome do Projeto</label>
