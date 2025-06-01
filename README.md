@@ -74,8 +74,7 @@ O resultado é um fluxo ágil para criar um currículo personalizado e exportá-
 
 ---
 
-## Estrutura de Pastas - Markdown
-
+## Estrutura de Pastas 
 
 - **css/main.css**:  
   - Variáveis CSS (cores primárias, secundárias, de texto).
