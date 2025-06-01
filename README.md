@@ -11,11 +11,7 @@ Um gerador de currículo em formato web, que permite ao usuário inserir informa
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)  
 - [Estrutura de Pastas](#estrutura-de-pastas)  
 - [Pré-requisitos](#pré-requisitos)  
-- [Como Executar](#como-executar)  
-- [Uso](#uso)  
-- [Personalização e Extensões](#personalização-e-extensões)  
-- [Contribuindo](#contribuindo)  
-- [Licença](#licença)  
+- [Como Executar](#como-executar)   
 
 ---
 
