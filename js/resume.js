@@ -543,6 +543,13 @@ function validateField(field) {
   let isValid = true;
   let errorMessage = "";
 
+  if (fieldName === "workEndDate[]") {
+    const parentGroup = field.closest(".end-date-group");
+    if (parentGroup && parentGroup.style.display === "none") {
+      field.classList.remove("border-red-500", "border-green-500");
+      return true;
+    }
+  }
   field.classList.remove(
     "border-red-500",
     "border-yellow-500",
@@ -646,35 +653,49 @@ function addEntry(type) {
       </div>
     `,
     experience: `
-      <button type="button" class="remove-entry btn btn-danger">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-        Remover
-      </button>
+    <button type="button" class="remove-entry btn btn-danger">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+      Remover
+    </button>
+
+    <div class="form-group">
+      <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+      <input type="text" name="company[]" class="form-input" placeholder="Nome da empresa">
+    </div>
+    <div class="form-group">
+      <label for="position" class="block text-sm font-medium text-gray-700 mb-1">Cargo</label>
+      <input type="text" name="position[]" class="form-input" placeholder="Seu cargo">
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
       <div class="form-group">
-        <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
-        <input type="text" name="company[]" class="form-input" placeholder="Nome da empresa">
+        <label for="workStartDate" class="block text-sm font-medium text-gray-700 mb-1">Data de Início</label>
+        <input type="month" name="workStartDate[]" class="form-input">
       </div>
-      <div class="form-group">
-        <label for="position" class="block text-sm font-medium text-gray-700 mb-1">Cargo</label>
-        <input type="text" name="position[]" class="form-input" placeholder="Seu cargo">
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="form-group">
-          <label for="workStartDate" class="block text-sm font-medium text-gray-700 mb-1">Data de Início</label>
-          <input type="month" name="workStartDate[]" class="form-input">
+       <div class="form-group end-date-group">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Data de Término</label>
+        <input type="month" name="workEndDate[]" class="form-input">
         </div>
-        <div class="form-group">
-          <label for="workEndDate" class="block text-sm font-medium text-gray-700 mb-1">Data de Término</label>
-          <input type="month" name="workEndDate[]" class="form-input">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
-        <textarea name="description[]" class="form-input" rows="3" placeholder="Descreva suas responsabilidades e conquistas"></textarea>
-      </div>
-    `,
+    </div>   
+    <div class="form-group flex items-center gap-2 mt-2">
+      <input
+        type="checkbox"
+        name="currentJob[]"
+        class="current-job-checkbox h-4 w-4"
+        id="currentJobCheckbox"
+      />
+      <label for="currentJobCheckbox" class="text-sm font-medium text-gray-700">
+        Atualmente trabalho aqui
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
+      <textarea name="description[]" class="form-input" rows="3" placeholder="Descreva suas responsabilidades e conquistas"></textarea>
+    </div>
+  `,
     project: `
       <button type="button" class="remove-entry btn btn-danger">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -715,20 +736,49 @@ function addEntry(type) {
     });
   });
 
-  newEntry.querySelector(".remove-entry").addEventListener("click", () => {
-    if (container.querySelectorAll(`.${type}-entry`).length > 1) {
-      newEntry.style.opacity = "0";
-      setTimeout(() => {
-        newEntry.remove();
-        generatePreview();
-      }, 300);
-    } else {
-      newEntry.querySelectorAll("input, textarea").forEach((field) => {
-        field.value = "";
-      });
+  if (type === "experience") {
+    const checkbox = newEntry.querySelector(".current-job-checkbox");
+    const endDateInput = newEntry.querySelector("input[name='workEndDate[]']");
+
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        endDateInput.value = "";
+        endDateInput.disabled = true;
+      } else {
+        endDateInput.disabled = false;
+      }
       generatePreview();
-    }
-  });
+    });
+  }
+
+  if (type === "experience") {
+    const checkbox = newEntry.querySelector(".current-job-checkbox");
+    const endDateGroup = newEntry.querySelector(".end-date-group");
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        endDateGroup.style.display = "none";
+      } else {
+        endDateGroup.style.display = "block";
+      }
+      generatePreview();
+    });
+
+    newEntry.querySelector(".remove-entry").addEventListener("click", () => {
+      const allEntries = container.querySelectorAll(".experience-entry");
+      if (allEntries.length > 1) {
+        newEntry.style.opacity = "0";
+        setTimeout(() => {
+          newEntry.remove();
+          generatePreview();
+        }, 300);
+      } else {
+        newEntry.querySelectorAll("input, textarea").forEach((field) => {
+          field.value = "";
+        });
+        generatePreview();
+      }
+    });
+  }
 }
 
 function calculateAge(birthDate) {
@@ -808,6 +858,21 @@ document.addEventListener("DOMContentLoaded", function () {
       generatePreview();
     });
   }
+
+  document.querySelectorAll(".experience-entry").forEach((entry) => {
+    const checkbox = entry.querySelector(".current-job-checkbox");
+    const endDateGroup = entry.querySelector(".end-date-group");
+    if (checkbox && endDateGroup) {
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          endDateGroup.style.display = "none";
+        } else {
+          endDateGroup.style.display = "block";
+        }
+        generatePreview();
+      });
+    }
+  });
 
   document.querySelectorAll(".form-input").forEach((field) => {
     field.addEventListener("input", () => {

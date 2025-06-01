@@ -110,16 +110,28 @@
                                         <label for="position" class="block text-sm font-medium text-gray-700 mb-1">Cargo</label>
                                         <input type="text" name="position[]" class="form-input" placeholder="Seu cargo">
                                     </div>
+
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="form-group">
                                             <label for="workStartDate" class="block text-sm font-medium text-gray-700 mb-1">Data de Início</label>
                                             <input type="month" name="workStartDate[]" class="form-input">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="workEndDate" class="block text-sm font-medium text-gray-700 mb-1">Data de Término</label>
+                                        <div class="form-group end-date-group">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Data de Término</label>
                                             <input type="month" name="workEndDate[]" class="form-input">
                                         </div>
                                     </div>
+                                    <div class="form-group flex items-center gap-2 mt-2">
+                                        <input
+                                            type="checkbox"
+                                            name="currentJob[]"
+                                            class="current-job-checkbox h-4 w-4"
+                                            id="currentJobCheckbox" />
+                                        <label for="currentJobCheckbox" class="text-sm font-medium text-gray-700">
+                                            Atualmente trabalho aqui
+                                        </label>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
                                         <textarea name="description[]" class="form-input" rows="3" placeholder="Descreva suas responsabilidades e conquistas"></textarea>
