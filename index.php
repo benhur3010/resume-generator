@@ -13,6 +13,27 @@
 </head>
 
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <header
+        id="mainMenu"
+        class="sticky top-0 bg-white shadow p-2 z-20 print:hidden">
+        <nav class="container mx-auto px-4 py-2 flex gap-6">
+            <a
+                href="#personalInfo"
+                class="text-gray-700 hover:text-blue-600">Informações</a>
+            <a
+                href="#educationSection"
+                class="text-gray-700 hover:text-blue-600">Educação</a>
+            <a
+                href="#experienceSection"
+                class="text-gray-700 hover:text-blue-600">Experiência</a>
+            <a
+                href="#skillsSection"
+                class="text-gray-700 hover:text-blue-600">Habilidades</a>
+            <a
+                href="#projectsSection"
+                class="text-gray-700 hover:text-blue-600">Projetos</a>
+        </nav>
+    </header>
     <div class="container mx-auto px-4 py-8 max-w-7xl">
         <header class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">Gerador de Currículo</h1>
@@ -23,7 +44,8 @@
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <form id="resumeForm" class="space-y-8" method="POST">
-                        <div class="form-section">
+                        <!-- Informações pessoais -->
+                        <div class="form-section" id="personalInfo">
                             <h2 class="section-title">Informações Pessoais</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="form-group">
@@ -65,7 +87,8 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <!-- Educação -->
+                        <div class="form-section" id="educationSection">
                             <h3 class="section-title">Educação</h3>
                             <div id="educationContainer" class="scrollable-section">
                                 <div class="education-entry entry-container">
@@ -98,7 +121,8 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <!-- Experiência -->
+                        <div class="form-section" id="experienceSection">
                             <h3 class="section-title">Experiência Profissional</h3>
                             <div id="experienceContainer" class="scrollable-section">
                                 <div class="experience-entry entry-container">
@@ -143,7 +167,8 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <!-- Habilidades -->
+                        <div class="form-section" id="skillsSection">
                             <h3 class="section-title">Habilidades</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="form-group">
@@ -165,7 +190,8 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <!-- Projetos -->
+                        <div class="form-section" id="projectsSection">
                             <h3 class="section-title">Projetos Relevantes</h3>
                             <div id="projectContainer" class="scrollable-section">
                                 <div class="project-entry entry-container">
