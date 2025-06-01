@@ -759,17 +759,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (addEducationBtn) {
-    addEducationBtn.addEventListener("click", () => addEntry("education"));
-  }
+  addEducationBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addEntry("education");
+  });
 
-  if (addExperienceBtn) {
-    addExperienceBtn.addEventListener("click", () => addEntry("experience"));
-  }
+  addExperienceBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addEntry("experience");
+  });
 
-  if (addProjectBtn) {
-    addProjectBtn.addEventListener("click", () => addEntry("project"));
-  }
+  addProjectBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addEntry("project");
+  });
 
   if (exportPDFBtn) {
     exportPDFBtn.addEventListener("click", function (e) {
